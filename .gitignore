@@ -1,3 +1,9 @@
+# Code::Blocks files/folders
+*.cbp
+*.layout
+bin/
+obj/
+
 # Compiled Object files
 *.slo
 *.lo
