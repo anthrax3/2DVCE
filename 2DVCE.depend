@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1450030990 source:/home/ricky/devel/2DVCE/main.cpp
+	<cstdio>
+	<vector>
+	<SFML/Graphics.hpp>
+	<ctime>
+	"config.h"
+
+1450030948 /home/ricky/devel/2DVCE/config.h
+

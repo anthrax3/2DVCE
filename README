@@ -1,0 +1,14 @@
+2DVCE is Copyright 2015 Ricky LeDew and is available under the GNU GPL v3.
+
+2DVCE (2D Virtual Creature Evolution) is an attempt to recreate "Evolution Simulator" by Cary Huang
+in C++, with the help of SFML.
+
+Special thanks to:
+- Cary Huang (carykh) for his awesome Evolution Simulator, written in Processing that inspired me to make this.
+- Lee Graham for 3DVCE, which was abandoned, but still has a catchy name (which I stole).
+- The SFML Team for making such an awesome multimedia library.
+
+Notes:
+Currently, it's only for linux. Sorrrryyyyy.
+
+2DVCE isn't finished yet. But just you wait!
