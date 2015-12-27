@@ -22,6 +22,7 @@
 #include <cmath>
 #include <random>
 #include "config.h"
+#include "debug.h"
 
 class Point {
     public:
@@ -58,6 +59,9 @@ class Object {
         }
         void updateBounds() {
             bounds = Bounds(pos + offset_min, pos + offset_max);
+        }
+        void obj_update() {
+            updateBounds();
         }
 
 
@@ -100,7 +104,7 @@ class Dynamic : Object {
         void update() {
             pos.x += (vel.magnitude * std:cos(vel.angle))/GAME_FPS
             pos.y += (vel.magnitude * std:sin(vel.angle))/GAME_FPS
-            updateBounds();
+            obj_update()
         }
 };
 
@@ -149,6 +153,7 @@ class Muscle {
 
         void contract() {
             if (length > contracted && phase == 0) {
+                message(OK, "Contracted OK.");
                 n1.applyForce(strength*std::cos(angle), strength*std::sin(angle));
                 n2.applyForce(-(strength*std::cos(angle)), -(strength*std::sin(angle)));
             }
@@ -156,13 +161,14 @@ class Muscle {
         }
         void extend() {
             if (length > extended && phase == 1) {
+                message(OK, "Extended OK.");
                 n1.applyForce(-(strength*std::cos(angle)), -(strength*std::sin(angle)));
                 n2.applyForce(strength*std::cos(angle), strength*std::sin(angle));
             }
             length = std::sqrt(std::pow(n2.pos.x - n1.pos.x, 2) + std::pow(n2.pos.y - n1.pos.y, 2));
         }
 
-        void Update() {
+        void update() {
             if(clock.tick == clock.length*ctdtime)
                 phase = 0;
             else if (clock.tick == clock.length*ctdtime)

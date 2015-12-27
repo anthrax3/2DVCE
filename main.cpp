@@ -20,10 +20,16 @@
 #include <vector>
 #include <SFML/Graphics.hpp>
 #include <ctime>
+#include "objects.h"
 #include "config.h"
-
+Clock c(3)
+Dynamic n1(0,0,Bounds(Point(-1,-1),Point(1,1)),0.5,10);
+Dynamic n2(6,6,Bounds(Point(5,5),Point(7,7)),0.5,10);
+Muscle m(n1,n2,0.5,1,0.5,0.5,c)
 void Update(sf::RenderWindow &window) {
-
+m.update();
+n1.update();
+n2.update();
 }
 
 void Event(sf::RenderWindow &window) {
@@ -44,7 +50,6 @@ void Render(sf::RenderWindow &window) {
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(GAME_WIDTH, GAME_HEIGHT), GAME_TITLE);
-
     while(window.isOpen()) {
         Update(window);
         Event(window);
